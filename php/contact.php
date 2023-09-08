@@ -1,17 +1,37 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $clientName = $_POST["client_name"];
-    $startDate = $_POST["start_date"];
-    $endDate = $_POST["end_date"];
-    $contractText = $_POST["contract_text"];
 
-    // You can now do further processing or store this information in a database.
-    // For this example, we'll just display the contract details.
+// check if form was submitted
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    echo "Client Name: " . $clientName . "<br>";
-    echo "Start Date: " . $startDate . "<br>";
-    echo "End Date: " . $endDate . "<br>";
-    echo "Contract Text: " . $contractText . "<br>";
-} else {
-    echo "Invalid request.";
+    // get form data
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $message = $_POST['message'];
+    $from = 'email@mosheschwartzberg.com';
+
+    // validate form data
+    if (empty($name) || empty($email) || empty($phone) || empty($message)) {
+        // some form data is missing
+        $error = 'Please fill out all required fields.';
+    } else {
+        // form data is valid
+        // send email
+        $to = 'moshe@mosheschwartzberg.com';
+        $subject = 'New Message from Contact Form from ' . $name;
+        $body = "Name: $name\nEmail: $email\nPhone: $phone\n\n$message";
+        $headers = "From: $from\r\n";
+        $headers .= "Reply-To: $email\r\n";
+        if (mail($to, $subject, $body, $headers)) {
+            // email was sent
+            $msg = 'Thank you for your message! We will get back to you as soon as possible.';
+            // echo $msg;
+            header("Location: /summitted.html");
+        } else {
+            // email was not sent
+            $error = 'There was an error sending your message. Please try again later.';
+            // echo $error;
+            header("Location: /summitted.html");
+        }
+    }
 }
