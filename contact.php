@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         // form data is valid
         // send email
-        $to = 'moshe@mosheschwartzberg.com';
+        $to = $email;
         $subject = 'New Message from Contact Form from ' . $name;
         $body = "Name: $name\nEmail: $email\nPhone: $phone\n\n$message";
         $headers = "From: $from\r\n";
