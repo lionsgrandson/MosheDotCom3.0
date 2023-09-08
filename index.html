@@ -538,7 +538,8 @@
           <h2 class="section-heading text-uppercase">Contact Us</h2>
           <h3 class="section-subheading text-muted"></h3>
         </div>
-        <form id="contactForm" netlify method="POST">
+        <!-- netlify -->
+        <form id="contactForm" action="/php/contact.php"  method="POST">
           <div class="row align-items-stretch mb-5">
             <div class="col-md-6">
               <div class="form-group">
@@ -603,6 +604,7 @@
             <button
               type="submit"
               value="submit"
+              name="submit"
               class="btn btn-primary btn-xl text-uppercase"
             >
               Submit
