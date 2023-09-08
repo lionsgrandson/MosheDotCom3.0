@@ -808,46 +808,43 @@
           <h2 class="section-heading text-uppercase">Contact Us</h2>
           <h3 class="section-subheading text-muted"></h3>
         </div>
-        <form id="contactForm" action="/php/contact.php" method="POST">
+        <form id="contactForm" action="contact.php" method="POST">
           <div class="row align-items-stretch mb-5">
             <div class="col-md-6">
               <div class="form-group">
-                <!-- Name input-->
                 <input
                   class="form-control"
-                  id="name"
                   type="text"
-                  placeholder="Your Name *"
-                  data-sb-validations="required"
+                  id="name"
+                  name="name"
+                  placeholder="Jon Doe"
+                  required
                 />
                 <div class="invalid-feedback" data-sb-feedback="name:required">
                   A name is required.
                 </div>
               </div>
               <div class="form-group">
-                <!-- Email address input-->
                 <input
                   class="form-control"
-                  id="email"
                   type="email"
-                  placeholder="Your Email *"
-                  data-sb-validations="required,email"
+                  id="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  required
                 />
                 <div class="invalid-feedback" data-sb-feedback="email:required">
                   An email is required.
                 </div>
-                <div class="invalid-feedback" data-sb-feedback="email:email">
-                  Email is not valid.
-                </div>
               </div>
               <div class="form-group mb-md-0">
-                <!-- Phone number input-->
                 <input
                   class="form-control"
-                  id="phone"
                   type="tel"
-                  placeholder="Your Phone *"
-                  data-sb-validations="required"
+                  id="phone"
+                  name="phone"
+                  placeholder="XXX-XXX-XXXX"
+                  required
                 />
                 <div class="invalid-feedback" data-sb-feedback="phone:required">
                   A phone number is required.
@@ -856,12 +853,12 @@
             </div>
             <div class="col-md-6">
               <div class="form-group form-group-textarea mb-md-0">
-                <!-- Message input-->
                 <textarea
                   class="form-control"
                   id="message"
-                  placeholder="Your Message *"
-                  data-sb-validations="required"
+                  name="message"
+                  placeholder="Your message here"
+                  required
                 ></textarea>
                 <div
                   class="invalid-feedback"
@@ -873,11 +870,9 @@
             </div>
           </div>
           <div class="text-center">
-            <input
-              type="submit"
-              value="Submit"
-              class="btn btn-primary btn-xl text-uppercase"
-            />
+            <button type="submit" class="btn btn-primary btn-xl text-uppercase">
+              Submit
+            </button>
           </div>
         </form>
       </div>
