@@ -26,12 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // email was sent
             $msg = 'Thank you for your message! We will get back to you as soon as possible.';
             // echo $msg;
-            header("Location: /summitted.html");
+            header("Location: /index.html");
         } else {
             // email was not sent
             $error = 'There was an error sending your message. Please try again later.';
             // echo $error;
-            header("Location: /summitted.html");
+            header("Location: /index.html");
         }
     }
 }
